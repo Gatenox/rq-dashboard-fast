@@ -52,8 +52,6 @@ class RedisQueueDashboard(FastAPI):
 
         self.rq_dashboard_version = "0.4.0"
 
-        self.add_middleware(AuthenticationMiddleware, backend=security)
-
         logger = logging.getLogger(__name__)
 
         async def verify_credentials(
