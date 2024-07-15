@@ -116,7 +116,10 @@ def get_job_registrys(
 
                 jobs = jobs_fetched[start_index:end_index]
                 for job in jobs:
-                    status = job.get_status()
+                    if job is not None:
+                        status = job.get_status()
+                    else:
+                        continue
                     if status == "started":
                         started_jobs.append(
                             JobData(
